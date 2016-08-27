@@ -2,7 +2,7 @@
 
 ## Usage / Installation
 
-To install everything, compile the test files, and test the app, use the following:
+To install everything and run the app, use the following:
 
 ```
 npm install -g webpack

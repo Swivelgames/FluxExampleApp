@@ -4,6 +4,7 @@ import Framework from './fx/';
 import AppStoreFactory from './stores/AppStore.js';
 import RouterStoreFactory from './stores/RouterStore.js';
 import AppActionsFactory from './actions/AppActions.js';
+import RouterActionsFactory from './actions/RouterActions.js';
 import AppContainerFactory from './views/AppContainer.jsx';
 
 const App = {
@@ -16,6 +17,7 @@ const Dispatcher = new Framework.Dispatcher();
 App.Stores.AppStore = Framework.StoreFactory(Dispatcher, AppStoreFactory, App);
 App.Stores.RouterStore = Framework.StoreFactory(Dispatcher, RouterStoreFactory, App);
 App.Actions.AppActions = AppActionsFactory(Dispatcher);
+App.Actions.RouterActions = RouterActionsFactory(Dispatcher);
 
 const AppContainer = AppContainerFactory(App);
 
