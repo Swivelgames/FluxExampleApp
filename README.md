@@ -1,12 +1,6 @@
-# Webpack / Babel Boilerplate
-
-This repository is designed to be forked for use as the base of new projects using Webpack and Babel (with ES2015 / ES6 transpilation).
+# FLUX Todo Example App
 
 ## Usage / Installation
-
-After forking this repository, simply install the necessary NPM Modules and begin developing in the `src/` directory.
-
-The included Webpack configuration points to `src/main.js` as the main entry point.
 
 To install everything, compile the test files, and test the app, use the following:
 
@@ -15,3 +9,14 @@ npm install -g webpack
 npm install
 webpack-dev-server
 ```
+
+Open a new terminal and run
+```
+node services.js
+```
+
+Then go to `localhost:8080` in your browser.
+
+## WebpackBabelBoiler
+[This little app was created using the Webpack Babel Boiler by Joseph Dalrymple. Check it out :)](https://github.com/Swivelgames/WebpackBabelBoiler)
+
