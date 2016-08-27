@@ -13,6 +13,5 @@ To install everything, compile the test files, and test the app, use the followi
 ```
 npm install -g webpack
 npm install
-webpack
-node app.js
+webpack-dev-server
 ```
