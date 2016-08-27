@@ -47,12 +47,9 @@ const addItem = (title) => {
 const removeItem = (id) => {
 	var items = getItems();
 	try {
-		console.log("ATTEMPTING TO REMOVE ID: "+id);
-		items.Items.filter( (i) => {
-			console.log(i._id, i._id!==id);
-			return i._id!==id;
-		});
+		items.Items = items.Items.filter( i => i._id!==id );
 		delete items.success;
+		console.log(items);
 		fs.writeFileSync(db, JSON.stringify(items));
 		items.success = true;
 	} catch (e) {
