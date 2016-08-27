@@ -8,6 +8,7 @@ export default (App) => class AppContainer extends React.Component {
 		this.state = this.getState();
 		App.Stores.AppStore.subscribe(this.updateState.bind(this));
 		App.Stores.RouterStore.subscribe(this.updateState.bind(this));
+		App.Actions.AppActions.getItems();
 	}
 
 	updateState() {

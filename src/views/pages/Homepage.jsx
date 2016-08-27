@@ -8,17 +8,28 @@ export default (App) => class Header extends React.Component {
 	}
 
 	render() {
-		let TodoItems = App.Stores.AppStore.get().Items.map( (v,i) => {
-			var styles = {};
+		let AppStore = App.Stores.AppStore.get();
+
+		if(AppStore.Errors) {
+			console.warn(AppStore.Errors);
+		}
+
+		let TodoItems = AppStore.Items.sort( (a,b) => {
+			return a.done && !b.done;
+		}).map( (v,i) => {
+			var styles = { color: "blue", fontStyle: "normal", fontWeight: "bold" };
 			if(v.done) {
-				styles = {
-					textDecoration: "line-through"
-				};
+				Object.assign(styles, {
+					textDecoration: "line-through",
+					fontStyle: "italic",
+					fontWeight: "normal",
+					color: "grey"
+				});
 			}
 			return (
 				<li key={"todoListItem__"+i}>
-					<input type="checkbox" onClick={() => App.Actions.AppActions.toggleItem(v._id)} checked={v.done} />
-					<b style={styles}>{v.title}</b>
+					<input type="checkbox" onChange={() => App.Actions.AppActions.toggleItem(v._id)} checked={v.done} />
+					<span style={styles}>{v.title}</span>
 					<button onClick={() => App.Actions.AppActions.removeItem(v._id)}>Delete</button>
 				</li>
 			)

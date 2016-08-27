@@ -16,19 +16,14 @@ export default (Broadcast,Data) => class AppStore {
 	}
 
 	handleEvent(actionData) {
+		Data.Errors = void 0;
+
 		switch(actionData.action) {
-			case "Todo_AddItem":
-				Data.Items.push({
-					"_id": guid(),
-					"done": false,
-					"title": actionData.payload.title
-				});
+			case "error":
+				Data.Errors = actionData.payload.error;
 				break;
-			case "Todo_RemoveItem":
-				Data.Items = Data.Items.filter( (i) => i._id!==actionData.payload.id );
-				break;
-			case "Todo_ToggleItem":
-				Data.Items.forEach( (i) => i.done = (i._id===actionData.payload.id) ? !i.done : i.done );
+			case "Todo_AllItems":
+				Data.Items = actionData.payload.Items;
 				break;
 			default:
 				return;
