@@ -16,7 +16,7 @@ export default (App) => class Header extends React.Component {
 
 		let TodoItems = AppStore.Items.sort( (a,b) => {
 			return a.done && !b.done;
-		}).map( (v,i) => {
+		}).map( (v) => {
 			var styles = { color: "blue", fontStyle: "normal", fontWeight: "bold" };
 			if(v.done) {
 				Object.assign(styles, {
@@ -27,7 +27,7 @@ export default (App) => class Header extends React.Component {
 				});
 			}
 			return (
-				<li key={"todoListItem__"+i}>
+				<li key={"todoListItem__"+v._id}>
 					<input type="checkbox" onChange={() => App.Actions.AppActions.toggleItem(v._id)} checked={v.done} />
 					<span style={styles}>{v.title}</span>
 					<button onClick={() => App.Actions.AppActions.removeItem(v._id)}>Delete</button>
